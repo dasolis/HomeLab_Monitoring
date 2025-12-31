@@ -1,0 +1,14 @@
+name: Lint YAML
+on: [push] # Run this every time you push code
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check YAML syntax
+        run: |
+          # This tiny script tries to parse your files. 
+          # If they are broken, the "Build" fails.
+          python3 -c "import yaml; yaml.safe_load(open('docker-compose.yml'))"
+          python3 -c "import yaml; yaml.safe_load(open('prometheus.yml'))"

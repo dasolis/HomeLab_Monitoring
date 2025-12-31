@@ -1,0 +1,7 @@
+# Ignore the actual database data
+prometheus_data/
+grafana_data/
+
+# Ignore sensitive OS files
+.DS_Store
+*.log
